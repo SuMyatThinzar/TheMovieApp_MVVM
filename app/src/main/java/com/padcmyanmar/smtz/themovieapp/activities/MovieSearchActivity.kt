@@ -1,6 +1,8 @@
 package com.padcmyanmar.smtz.themovieapp.activities
 
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,13 +45,28 @@ class MovieSearchActivity : AppCompatActivity(), MovieViewHolderDelegate {
             .subscribe {
                 mMovieAdapter.setNewData(it)
             }
+
+        // Set the editor action listener
+        etSearch.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_SEARCH) {
+                // Handle the "Done" or "Search" action here
+                hideKeyboard()
+                return@setOnEditorActionListener true
+            }
+            false
+        }
     }
 
     private fun setUpMovieAdapter() {
         mMovieAdapter = MovieAdapter(this)
         rvMovies.adapter = mMovieAdapter
-//        rvMovies.layoutManager = GridLayoutManager(this,2)
-        rvMovies.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
+        rvMovies.layoutManager = GridLayoutManager(this,2)
+//        rvMovies.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
+    }
+
+    private fun hideKeyboard() {
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(etSearch.windowToken, 0)
     }
 
     override fun onTapMovie(movieId: Int) {

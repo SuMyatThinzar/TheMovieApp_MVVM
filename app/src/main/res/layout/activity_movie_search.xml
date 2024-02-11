@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".activities.MovieSearchActivity">
+    tools:context=".activities.MovieSearchActivity"
+    android:fitsSystemWindows="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- hintTextColor solved auto changing hint color on focus state -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilSearch"
             android:layout_width="match_parent"
@@ -18,14 +20,21 @@
             android:layout_marginStart="@dimen/margin_medium_2"
             android:layout_marginTop="@dimen/margin_medium_2"
             android:layout_marginEnd="@dimen/margin_medium_2"
+            android:layout_alignParentTop="true"
+            android:hint="Please enter movie name"
             android:textColorHint="@color/white"
-            app:boxBackgroundColor="@color/colorPrimary">
+            app:hintTextColor="@color/white"
+            app:boxBackgroundColor="#343946"
+            app:boxStrokeColor="@color/white"
+            app:endIconMode="clear_text"  >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Please enter movie name"
+                android:textColorHint="@color/white"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
                 android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -41,4 +50,4 @@
 
     </RelativeLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

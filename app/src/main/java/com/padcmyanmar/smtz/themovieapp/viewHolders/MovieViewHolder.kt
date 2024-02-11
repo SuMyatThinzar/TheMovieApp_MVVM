@@ -18,7 +18,6 @@ class MovieViewHolder(itemView: View, private val mDelegate: MovieViewHolderDele
     init{
         itemView.setOnClickListener {
             mMovieVO?.let { movie ->
-                Snackbar.make(itemView, "Tapped", Snackbar.LENGTH_SHORT).show()
                 mDelegate.onTapMovie(movie.id)
             }
         }

@@ -58,7 +58,7 @@ class MovieDetailsActivity : AppCompatActivity() {
     private fun observeLiveData() {
 
         mMovieDetailViewModel.movieDetailsLiveData?.observe(this) {
-            it?.let{ movie ->
+            it?.let { movie ->
                 bindData(movie)
             }
         }
@@ -71,9 +71,10 @@ class MovieDetailsActivity : AppCompatActivity() {
         Glide.with(this)
             .load("$IMAGE_BASE_URL${movie.posterPath}")
             .into(ivMovieDetail)
+        collapsingToolbar.title = movie.title ?: ""
         tvDetailMovieName.text = movie.title ?: ""
         tvDetailMovieReleaseYear.text = movie.releaseDate?.substring(0, 4)
-        tvRating.text = movie.voteAverage.toString() ?: ""
+        tvRating.text = movie.voteAverage.toString()
         rbDetailMovieRating.rating = movie.getRatingBasedOnFiveStars()
         movie.voteCount?.let {
             tvNumberOfVotes.text = "$it VOTES"

@@ -13,6 +13,8 @@ class MainViewModel : ViewModel() {
 
     private var mMovieModel : MovieModel = MovieModelImpl
 
+    var movieDetailsLiveData : LiveData<MovieVO?>? = null   // for navigation recently watched
+
     var nowPlayingMoviesLiveData: LiveData<List<MovieVO>>? = null
     var popularMoviesLiveData: LiveData<List<MovieVO>>? = null
     var topRatedMoviesLiveData: LiveData<List<MovieVO>>? = null
@@ -56,6 +58,13 @@ class MainViewModel : ViewModel() {
                 mErrorLiveData.postValue(it)
             })
         }
+    }
+
+    fun getMovieById(movieId: Int) {
+        movieDetailsLiveData = mMovieModel.getMovieDetails(
+            movieId = movieId.toString(),
+            onFailure = { mErrorLiveData.postValue(it) }
+        )
     }
 
 }

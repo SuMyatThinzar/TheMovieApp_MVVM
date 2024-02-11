@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.navigation.NavigationView
+    android:id="@+id/navView"
+    android:layout_width="280dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/colorPrimary"
+    android:maxWidth="280dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium_2"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/margin_xxlarge"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/text_title"
+            android:text="Recently watched Movie"
+            android:textColor="@color/white"/>
+
+        <include
+            android:id="@+id/layoutPreviouslyWatched"
+            android:layout_width="@dimen/width_movie_item"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            layout="@layout/view_holder_movie_list" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDeveloperTag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:gravity="bottom|center_horizontal"
+        android:text="Developed by SuMyatThinzar"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_regular_2x" />
+
+</com.google.android.material.navigation.NavigationView>

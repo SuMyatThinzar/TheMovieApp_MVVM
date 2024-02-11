@@ -44,4 +44,6 @@
     <dimen name="height_collapsing_toolbar_movie">300dp</dimen>
     <dimen name="width_release_year">72dp</dimen>
     <dimen name="tv_rating_size">42sp</dimen>
+
+    <dimen name="text_title">18sp</dimen>
 </resources>

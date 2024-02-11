@@ -29,6 +29,7 @@
 //
 //    class GetNowPlayingMovieOkHttpTask(private val mOkHttpClient: OkHttpClient) : AsyncTask<Void,Void,MovieListResponse>(){
 //
+//        @Deprecated("Deprecated in Java")
 //        override fun doInBackground(vararg params: Void?): MovieListResponse? {
 //
 //            val request = Request.Builder()
@@ -39,15 +40,15 @@
 //                val response = mOkHttpClient.newCall(request)
 //                    .execute()
 //
-//                if(response.isSuccessful){
-//                    response.body?.let{
+//                if(response.isSuccessful) {
+//                    response.body?.let {
 //                        val responseString = it.string()
-//                        val response = Gson().fromJson(
+//
+//                        val responseJson = Gson().fromJson(
 //                            responseString,
 //                            MovieListResponse::class.java
 //                        )
-//
-//                        return response
+//                        return responseJson
 //                    }
 //                }
 //            } catch (e: Exception){

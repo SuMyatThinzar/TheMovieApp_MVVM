@@ -23,14 +23,16 @@
 //        GetNowPlayingMovieTask().execute()
 //    }
 //
-//    class GetNowPlayingMovieTask() : AsyncTask<Void, Void, MovieListResponse?>() {
-//        //doInBackground -> background thread
+//    class GetNowPlayingMovieTask : AsyncTask<Void, Void, MovieListResponse?>() {
+//
+//        @Deprecated("Deprecated in Java")
 //        override fun doInBackground(vararg params: Void?): MovieListResponse? {
+//
 //            val url : URL
 //            var reader : BufferedReader? = null
 //            val stringBuilder : StringBuilder
 //
-//            try{
+//            try {
 //                url = URL("""$BASE_URL$API_GET_NOW_PLAYING?api_key=$MOVIE_API_KEY&language=en-US&page=1""")  //1
 //
 //                val connection = url.openConnection() as HttpURLConnection                                       //2
